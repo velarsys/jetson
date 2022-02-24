@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+# This is simple refactor of detectnet.py for checking distance and making the robot move
+# https://github.com/dusty-nv/jetson-inference/blob/master/docs/depthnet.md
+
 import jetson.inference
 import jetson.utils
 import numpy as np
@@ -5,6 +9,8 @@ from robot import Robot
 
 robot=Robot();
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
+
+# /dev/video0 is the name of the USB camera if you list cameras
 camera = jetson.utils.videoSource("/dev/video0")  # '/dev/video0' for V4L2
 # load mono depth network
 net = jetson.inference.depthNet()
