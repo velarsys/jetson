@@ -11,3 +11,5 @@ Steps to use the bot
 3. Copy the files from this repository to the /jetson-inference/python/examples
 4. Run the autobot: python3 autobot.py
 5. The bot will move forward and when it detects objects, it moves right and then forward again
+
+Video demo: https://www.youtube.com/watch?v=8f6Z1EUiHO4
