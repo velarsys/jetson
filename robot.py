@@ -1,3 +1,7 @@
+# Install Jetson GPIO
+# 32 and 33 are the PWM pins (Board pin numbers on Jetson)
+# Connect them to L293D (A1, B1 and do trials accordingly)
+
 import time
 import Jetson.GPIO as GPIO
 

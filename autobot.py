@@ -6,6 +6,7 @@ import jetson.inference
 import jetson.utils
 import numpy as np
 from robot import Robot
+import time
 
 robot=Robot();
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
@@ -39,6 +40,7 @@ while True:
     # When hand is moved in front, the max_depth increases
     if(max_depth<2):
         robot.right()
+        time.sleep(5)
     else:
         robot.forward()
 
