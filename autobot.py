@@ -8,7 +8,7 @@ import numpy as np
 from robot import Robot
 import time
 
-robot=Robot();
+robot = Robot();
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
 
 # /dev/video0 is the name of the USB camera if you list cameras
@@ -35,13 +35,25 @@ while True:
     min_depth = np.amin(depth_numpy)
     max_depth = np.amax(depth_numpy)
     # min_depth is a float 32
-    print("min_depth is "+str(min_depth))
-    print("max_depth is "+str(max_depth))
-    # When hand is moved in front, the max_depth increases
-    if(max_depth<2):
+    print("min_depth is " + str(min_depth))
+    print("max_depth is " + str(max_depth))
+    # More the value of max depth, more distance the object is. 2 looks to be the optimum value
+    # Min depth is 1 and Max depth is < 2, Move forward
+    if (min_depth > 1 and max_depth > 2):
+        robot.stop()
+        # Stop, Move right for a second
+        robot.forward()
+        time.sleep(2)
+    # As object comes closer, the min_depth gets reduced
+    elif (min_depth < 1 and min_depth < 2):
+        print("Robot is stuck")
+        robot.stop()
+        # Stop, Move right for a second
+        robot.reverse()
+        time.sleep(3)
         robot.right()
-        time.sleep(5)
+        time.sleep(3)
+        # Whenever you move 32 and 33 to LOW, it remains as it is. So use start function
+        robot.start()
     else:
         robot.forward()
-
-

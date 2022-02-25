@@ -8,4 +8,8 @@ robot.forward()
 time.sleep(5)
 robot.right()
 time.sleep(5)
+robot.reverse()
+time.sleep(5)
+robot.left()
+time.sleep(5)
 
