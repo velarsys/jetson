@@ -12,4 +12,5 @@ robot.reverse()
 time.sleep(5)
 robot.left()
 time.sleep(5)
+robot.stop()
 
