@@ -43,16 +43,16 @@ while True:
         robot.stop()
         # Stop, Move right for a second
         robot.forward()
-        time.sleep(2)
+        time.sleep(1)
     # As object comes closer, the min_depth gets reduced
     elif (min_depth < 1 and min_depth < 2):
         print("Robot is stuck")
         robot.stop()
         # Stop, Move right for a second
         robot.reverse()
-        time.sleep(3)
+        time.sleep(1)
         robot.right()
-        time.sleep(3)
+        time.sleep(1)
         # Whenever you move 32 and 33 to LOW, it remains as it is. So use start function
         robot.start()
     else:

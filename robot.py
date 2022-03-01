@@ -39,6 +39,8 @@ class Robot:
         self.direction="Stopped"
         GPIO.output(self.left_motor[0], GPIO.LOW)
         GPIO.output(self.right_motor[0], GPIO.LOW)
+        GPIO.output(self.left_motor[1], GPIO.LOW)
+        GPIO.output(self.right_motor[1], GPIO.LOW)
         print(self.direction)
     def start(self):
         self.direction="Started"

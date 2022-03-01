@@ -5,12 +5,12 @@ robot = Robot();
 
 # Move forward for 5 secs
 robot.forward()
-time.sleep(5)
+time.sleep(1)
 robot.right()
-time.sleep(5)
+time.sleep(1)
 robot.reverse()
-time.sleep(5)
+time.sleep(1)
 robot.left()
-time.sleep(5)
+time.sleep(1)
 robot.stop()
 
