@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # This is simple refactor of detectnet.py for checking distance and making the robot move
 # https://github.com/dusty-nv/jetson-inference/blob/master/docs/depthnet.md
+# PWM Sample: https://github.com/NVIDIA/jetson-gpio/blob/master/samples/simple_pwm.py
 
 import jetson.inference
 import jetson.utils
@@ -42,18 +43,18 @@ while True:
     if (min_depth > 1 and max_depth > 2):
         robot.stop()
         # Stop, Move right for a second
-        robot.forward(speed=1.0)
+        robot.forward(speed=10)
         time.sleep(1)
     # As object comes closer, the min_depth gets reduced
     elif (min_depth < 1 and min_depth < 2):
         print("Robot is stuck")
         robot.stop()
         # Stop, Move right for a second
-        robot.reverse(speed=1.0)
+        robot.reverse(speed=10)
         time.sleep(1)
-        robot.right(speed=1.0)
+        robot.right(speed=10)
         time.sleep(1)
         # Whenever you move 32 and 33 to LOW, it remains as it is. So use start function
         robot.start()
     else:
-        robot.forward(speed=1.0)
+        robot.forward(speed=10)
